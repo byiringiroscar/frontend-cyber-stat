@@ -7,7 +7,7 @@ import { NAV_LINKS } from '@/constants'
 
 const Navbar = () => {
   return (
-    <nav className='flexBetween max-container padding-container relative z-30 py-5'>
+    <nav className='flex justify-between padding-container relative z-30 py-5'>
         <Link href='/'>
             <Image alt="logo" src={logo} width={180} height={60} />
         </Link>
