@@ -5,3 +5,12 @@ export const NAV_LINKS = [
     { href: '/', key: 'About', label: 'About' },
     { href: '/', key: 'Contact ', label: 'Contact ' },
   ];
+
+  export const SOCIALS = {
+    title: [
+      'FaFacebook',
+      'FaInstagramSquare',
+      'FaTwitter',
+      'FaYoutube',
+    ],
+  };
