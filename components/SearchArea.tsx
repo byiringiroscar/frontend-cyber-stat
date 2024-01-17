@@ -2,7 +2,7 @@ import React from 'react'
 
 const SearchArea = () => {
   return (
-    <section className='bg-[#F1F6FB] h-[180px]'>
+    <section className='flexCenter bg-[#F1F6FB] h-[180px]'>
       <h2>Search</h2>
       </section>
   )
