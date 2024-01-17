@@ -92,4 +92,11 @@
     @apply flex items-center justify-between;
   }
 
+  .bold-40 {
+    @apply text-[20px] font-[700] leading-[120%];
+  }
+  .bold-64 {
+    @apply text-[44px] font-[700] leading-[120%];
+  }
+
 }
