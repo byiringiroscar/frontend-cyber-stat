@@ -10,7 +10,7 @@ const SearchArea = () => {
               <form>
                 <div className="relative focus:border-none active:border-none">
                   <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
-                  <Input placeholder="Search" className="pl-8 focus:border-none active:border-none" />
+                  <Input placeholder="Search with country" className="pl-8 focus:border-none active:border-none" />
                 </div>
               </form>
             </div>
