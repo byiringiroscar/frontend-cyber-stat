@@ -1,7 +1,10 @@
 import Image from 'next/image'
+import SearchArea from '@/components/SearchArea'
 
 export default function Home() {
   return (
-    <h1>Hello world</h1>
+    <>
+      <SearchArea />
+    </>
   )
 }
