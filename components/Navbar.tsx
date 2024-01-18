@@ -5,6 +5,7 @@ import logo from '../public/logo.jpg'
 import menu from '../public/menu.svg'
 import { NAV_LINKS } from '@/constants' 
 
+
 const Navbar = () => {
   return (
     <nav className='flex justify-between padding-container relative  z-30 bg-white shadow py-5'>
