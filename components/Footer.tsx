@@ -1,8 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
 import logo from '../public/logo_color.png'
-import footer from '../public/footer-bg.jpg'
-import { SOCIALS } from '@/constants'
 import Link from 'next/link'
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
@@ -13,21 +11,21 @@ import { FaLocationPin } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <div className={`w-full padding-container bg-[#1B1825] bg-[center_center] bg-no-repeat bg-cover py-[30px] flex flex-col gap-10 lg:flex-row lg:justify-between`}>
+    <div className={`w-full padding-container bg-[url('../public/footer-bg.jpg')] bg-[#1B1825] bg-[center_center] bg-no-repeat bg-cover py-[30px] flex flex-col gap-10 lg:flex-row lg:justify-between`}>
         <div className='flex flex-col gap-[10px]'>
             <Image src={logo} alt='logo' height={200} width={200} />
             <p className='w-[300px] text-white'>Votre partenaire digital pour la conception d’application et votre CyberSécurité</p>
             <ul className="regular-14 flex gap-4 text-gray-30">
-            <div style={{ color: 'white' }}>
+            <div className='cursor-pointer' style={{ color: 'white' }}>
                 <FaFacebook />
             </div>
-            <div style={{ color: 'white' }}>
+            <div className='cursor-pointer' style={{ color: 'white' }}>
                 <FaInstagramSquare />
             </div>
-            <div style={{ color: 'white' }}>
+            <div className='cursor-pointer' style={{ color: 'white' }}>
                 <FaTwitter />
             </div>
-            <div style={{ color: 'white' }}>
+            <div className='cursor-pointer' style={{ color: 'white' }}>
                 <FaYoutube />
             </div>
             </ul>
