@@ -1,6 +1,6 @@
+'use client'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
 
 
 const options = {
@@ -8,19 +8,20 @@ const options = {
     url: 'http://127.0.0.1:8000/information',
   };
 
-
   const initialState = {
-    information: [],
+    informations: [],
     isLoading: false,
     hasError: false,
     searched: '',
   }
 
 
-  export const fetchInformation = createAsyncThunk('information/fetchInformation', async (thunkAPI) => {
+  export const fetchInformations = createAsyncThunk('information/fetchInformations', async (thunkAPI) => {
     try {
       const response = await axios.request(options);
-      return response.data;
+      const informations = await response.data;
+      console.log('-----------------------', informations)
+      return informations;
     } catch (error) {
       return thunkAPI.rejectWithValue('Something went wrong');
     }
@@ -28,18 +29,18 @@ const options = {
 
 
   const informationSlice = createSlice({
-    name: 'information',
+    name: 'informations',
     initialState,
     reducers: {
       addSearched: (state, action) => ({ ...state, searched: action.payload }),
     },
     extraReducers: (builder) => {
-      builder.addCase(fetchInformation.pending, (state) => ({ ...state, isLoading: true }));
-      builder.addCase(fetchInformation.fulfilled, (state, action) => {
-        const moviesFetched = action.payload;
-        return { ...state, isLoading: false, games: moviesFetched };
+      builder.addCase(fetchInformations.pending, (state) => ({ ...state, isLoading: true }));
+      builder.addCase(fetchInformations.fulfilled, (state, action) => {
+        const informationFetched = action.payload;
+        return { ...state, isLoading: false, informations: informationFetched };
       });
-      builder.addCase(fetchInformation.rejected,
+      builder.addCase(fetchInformations.rejected,
         (state) => ({ ...state, isLoading: false, hasError: true }));
     },
   });

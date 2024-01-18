@@ -1,18 +1,19 @@
 "use client"
-import React from 'react'
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Input } from "@/components/ui/input"
 import { Search } from "lucide-react"
-
-type SearchType = {
-  onSearch: any
-}
+import { addSearched } from '../redux/informationSlice'
 
 
-const SearchArea = ({onSearch}: SearchType) => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const handleSearch = () => {
-    onSearch(searchQuery);
+const SearchArea = () => {
+  const dispatch = useDispatch();
+  const [search, setSearch] = useState('');
+  useEffect(() => {
+    dispatch(addSearched(search));
+  });
+  const handleSearch = (e: any) => {
+    setSearch(e.target.value);
   };
   return (
     <section className='flexCenter bg-[#F1F6FB] h-[180px] lg:px-40'>
@@ -21,11 +22,7 @@ const SearchArea = ({onSearch}: SearchType) => {
                 <div className="relative focus:border-none active:border-none">
                   <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
                   <Input 
-                  value={searchQuery} 
-                  onChange={(e) => {
-                    setSearchQuery(e.target.value);
-                    handleSearch(); // Trigger search on every input change
-                  }}
+                  value={search} onChange={handleSearch}
                   placeholder="Search with country" 
                   className="pl-8 focus:border-none active:border-none" />
                 </div>
