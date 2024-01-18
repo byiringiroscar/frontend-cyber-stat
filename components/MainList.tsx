@@ -32,7 +32,7 @@ const MainList = () => {
     <section className='max-container padding-container'>
         <div className='grid grid-cols-1 py-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 pt-4 lg:pt-8'>
         {data.map((item: any) => (
-          <CardStat key={item.id} flag={item.flag} country={item.country} csirt={item.csirt} />
+          <CardStat key={item.id} flag={item.flag} country={item.country} csirt={item.csirt} country_code={item.country_code} />
         ))} 
         </div>
     </section>
