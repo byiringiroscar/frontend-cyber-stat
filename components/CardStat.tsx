@@ -10,7 +10,7 @@ type InformationType = {
 
 const CardStat = ({flag, country, csirt, country_code}: InformationType) => {
   return (
-    <div className='w-full flex justify-between p-3 bg-[#F1F6FB]'>
+    <div className='w-full flex justify-between p-3 bg-[#F1F6FB] rounded cursor-pointer'>
         <Image src={flag} alt='flag' height={30} width={30} />
         <div className='flex-col gap-2'>
             <h4 className='text-sm font-bold'>{country}</h4>
