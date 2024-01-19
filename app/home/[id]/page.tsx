@@ -14,6 +14,7 @@ import {
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useState } from 'react'
 
 
 
@@ -39,6 +40,12 @@ const updateInformation = async (id: any, newData: any) => {
 
 
 const InformationDetail = () => {
+    const [updateError, setupdateError] = useState({
+        country: '',
+        csirt: '',
+        web: '',
+      
+    })
     const pathname = usePathname();
     const router = useRouter();
     const id = pathname.split('/').slice(-1)[0];
@@ -67,13 +74,31 @@ const InformationDetail = () => {
           };
         try {
           const updatedData = await updateInformation(id, newData);
-          toast('Data Updated', {
-			hideProgressBar: true,
-			autoClose: 2000,
-			type: 'success'
-		});
-        mutate();
-        e.target.reset()
+          //   if status code 200 means success
+          if (updatedData.status === 200) {
+              toast('Data Updated', {
+                  hideProgressBar: true,
+                  autoClose: 2000,
+                  type: 'success'
+                });
+                mutate();
+                e.target.reset()
+            }
+            else{
+                const error = updatedData
+                console.log('error ------------------', error.web)
+                setupdateError({
+                    country: error.country ? error.country[0] : '',
+                    csirt: error.csirt ? error.csirt[0] : '',
+                    web: error.web ? error.web[0] : '',
+                })
+            toast('Data Failed to Update', {
+                hideProgressBar: true,
+                autoClose: 2000,
+                type: 'error'
+            });
+        }
+        
 
         } catch (err) {
             toast("Error")
@@ -114,16 +139,19 @@ const InformationDetail = () => {
                             </div>
                             <form className="grid gap-2" onSubmit={handleUpdate}>
                                 <div className="grid grid-cols-3 items-center gap-4">
-                                <Label htmlFor="width">Country</Label>
+                                <Label htmlFor="width">Country {updateError.country ? (<span className='text-red-500'>{updateError.country}</span>): ''}</Label>
                                 <input type="text" name='country' placeholder={data.country} className="col-span-2 h-8 border border-solid border-[gray] rounded px-[3px]" />
+                    
                                 </div>
                                 <div className="grid grid-cols-3 items-center gap-4">
-                                <Label htmlFor="maxWidth">Cisrt</Label>
+                                <Label htmlFor="maxWidth">Cisrt {updateError.csirt ? (<span className='text-red-500'>{updateError.csirt}</span>): ''}</Label>
                                 <input type="text" name='csirt' placeholder={data.csirt} className="col-span-2 h-8 border border-solid border-[gray] rounded px-[3px]" />
+                        
                                 </div>
                                 <div className="grid grid-cols-3 items-center gap-4">
-                                <Label htmlFor="height">Web</Label>
-                                <input type="url" name='web' placeholder={data.web} className="col-span-2 h-8 border border-solid border-[gray] rounded px-[3px]" />
+                                <Label htmlFor="height">Web {updateError.web ? (<span className='text-red-500'>{updateError.web}</span>): ''}</Label>
+                                <input type="text" name='web' placeholder={data.web} className="col-span-2 h-8 border border-solid border-[gray] rounded px-[3px]" />
+                    
                                 </div>
 
                                 <div>
