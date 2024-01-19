@@ -4,6 +4,7 @@ import { useState } from 'react';
 import useSWR from 'swr'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ThreeDots } from 'react-loader-spinner'
 
 
 
@@ -104,7 +105,16 @@ const AddData = () => {
                     <span className='text-red-500 text-sm'>{updateError.web}</span>
                 </div>
 
-                <button type='submit' className='bg-[#090337] text-white py-2 rounded-md'>{loading ? (<p>Loading ...</p>): 'Add Data'}</button>
+                <button type='submit' className='bg-[#090337] text-white py-2 rounded-md flex items-center justify-center'>{loading ? (<ThreeDots
+  visible={true}
+  height="40"
+  width="40"
+  color="#FFFFFF"
+  radius="4"
+  ariaLabel="three-dots-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  />): 'Add Data'}</button>
 
                 </form>
         </div>
