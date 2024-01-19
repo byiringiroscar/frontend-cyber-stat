@@ -14,7 +14,7 @@ import { FaLocationPin } from "react-icons/fa6";
 
 type ToggleType = {
     isMobileNavOpen?: boolean; // Replace 'any' with the actual type
-    onToggleNav?: () => void; // Replace 'any' with the actual type
+    onToggleNav?: any; // Replace 'any' with the actual type
   };
   
 
