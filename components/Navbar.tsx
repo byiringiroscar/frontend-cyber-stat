@@ -12,7 +12,6 @@ const Navbar = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const handleToggleMobileNav = () => {
     setIsMobileNavOpen(!isMobileNavOpen);
-    // console.log('----------------status----', isMobileNavOpen)
   };
   return (
     <nav className='flex justify-between padding-container relative bg-white shadow py-5'>
