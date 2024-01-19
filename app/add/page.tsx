@@ -96,7 +96,7 @@ const AddData = () => {
                 </div>
                 <div className='flex flex-col gap-2'>
                     <label htmlFor='csirt' className='font-bold'>CSIRT</label>
-                    <input type='text' name='csirt' id='csirt' className='border border-[#E5E5E5] rounded-md p-2' placeholder='CSIRT' />
+                    <input type='text' name='csirt' id='csirt' className='border border-[#E5E5E5] rounded-md p-2' placeholder='csirt' />
                     <span className='text-red-500 text-sm'>{updateError.csirt}</span>
                 </div>
                 <div className='flex flex-col gap-2'>
