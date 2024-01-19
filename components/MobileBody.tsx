@@ -21,7 +21,7 @@ type ToggleType = {
 
 const MobileBody = ({ isMobileNavOpen, onToggleNav }: ToggleType) => {
   return (
-    <div className={`fixed ${styles.container} w-[65vw] h-screen bg-[#09033A] z-[99] transition-all duration-[1s] ${isMobileNavOpen ? 'right-0' : '-right-full'} right-0 top-0`}>
+    <div className={`fixed ${styles.container} lg:hidden w-[65vw] h-screen bg-[#09033A] z-[99] transition-all duration-[1s] ${isMobileNavOpen ? 'right-0' : '-right-full'} right-0 top-0`}>
         <div className={styles.close} onClick={onToggleNav}>
             <IoIosClose className='text-white text-[50px]' />
         </div>
