@@ -10,7 +10,6 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react'
-import { MobileBody } from '@/components/MobileBody'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -43,7 +42,7 @@ export default function RootLayout({
           <SplashScreen finishLoading={() => setIsLoading(false)} />
           ): (
             <>
-            <MobileBody />
+            {/* <MobileBody /> */}
           <Navbar />
           <main className='relative overflow-hidden flex-grow'>
               
