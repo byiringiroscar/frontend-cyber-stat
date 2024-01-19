@@ -10,7 +10,7 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react'
-import MobileBody from '@/components/MobileBody'
+import { MobileBody } from '@/components/MobileBody'
 
 
 const inter = Inter({ subsets: ['latin'] })
