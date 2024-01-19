@@ -91,7 +91,7 @@ const AddData = () => {
             <form className='flex flex-col gap-4' onSubmit={handleAdd}>
                 <div className='flex flex-col gap-2'>
                     <label htmlFor='country' className='font-bold'>Country</label>
-                    <input type='text' name='country' id='country' className='border border-[#E5E5E5] rounded-md p-2' placeholder='Country' />
+                    <input required type='text' name='country' id='country' className='border border-[#E5E5E5] rounded-md p-2' placeholder='Country' />
                     <span className='text-red-500 text-sm'>{updateError.country}</span>
                 </div>
                 <div className='flex flex-col gap-2'>
