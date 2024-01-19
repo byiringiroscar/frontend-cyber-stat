@@ -85,34 +85,38 @@ const InformationDetail = () => {
           };
         try {
           const updatedData = await updateInformation(id, newData);
-          //   if status code 200 means success
-          if (updatedData.status === 200) {
-              toast('Data Updated', {
-                  hideProgressBar: true,
-                  autoClose: 2000,
-                  type: 'success'
-                });
-                mutate();
-                e.target.reset()
-            }
-            else{
-                const error = updatedData
-                setupdateError({
-                    country: error.country ? error.country[0] : '',
-                    csirt: error.csirt ? error.csirt[0] : '',
-                    web: error.web ? error.web[0] : '',
-                })
-                toast('Data Failed to Update', {
-                    hideProgressBar: true,
-                    autoClose: 2000,
-                    type: 'error'
-                });
-                clearErrorsAfterDelay();
-        }
+          if(updatedData.id){
+            toast('Data Updated', {
+                hideProgressBar: true,
+                autoClose: 2000,
+                type: 'success'
+              });
+              mutate();
+              e.target.reset()
+
+          }
+          else{
+            const error = updatedData
+            setupdateError({
+                country: error.country ? error.country[0] : '',
+                csirt: error.csirt ? error.csirt[0] : '',
+                web: error.web ? error.web[0] : '',
+            })
+            toast('Data Failed to Update', {
+                hideProgressBar: true,
+                autoClose: 2000,
+                type: 'error'
+            });
+            clearErrorsAfterDelay();
+          }
         
 
         } catch (err) {
-            toast("Error")
+            toast('Data Failed to Update', {
+                hideProgressBar: true,
+                autoClose: 2000,
+                type: 'error'
+            });
         }
       }
 
