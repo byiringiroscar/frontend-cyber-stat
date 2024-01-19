@@ -68,10 +68,16 @@ const InformationDetail = () => {
           await fetch(`http://127.0.0.1:8000/information/${id}/`, {
             method: "DELETE",
           });
-        router.push("/");
+          toast('Data Deleted', {
+            hideProgressBar: true,
+            autoClose: 2000,
+            type: 'success'
+          });
+            router.push("/");
 
         } catch (err) {
         router.push("/");
+
         }
       };
 

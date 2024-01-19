@@ -35,6 +35,24 @@ const SplashScreen = ({ finishLoading }) => {
       delay: 0,
       scale: 1.25,
     })
+    .add({
+      targets: "#logo",
+      duration: 500,
+      // easing: "easeInOutSine",
+      easing: "easeInOutExpo",
+      // opacity: [0, 1],
+      delay: 0,
+      scale: 1,
+    })
+    .add({
+      targets: "#logo",
+      duration: 500,
+      // easing: "easeInOutSine",
+      easing: "easeInOutExpo",
+      // opacity: [0, 1],
+      delay: 0,
+      scale: 1.25,
+    })
   }
 
   useEffect(() => {
@@ -43,7 +61,7 @@ const SplashScreen = ({ finishLoading }) => {
     return ()=> clearTimeout(timeout)
   })
   return (
-    <div className='flex h-screen items-center justify-center' isMounted={isMounted}>
+    <div className='flex h-screen bg-black items-center justify-center'>
       <Image id='logo' src={logo} alt='logo' width={250} height={200} />
 
     </div>
