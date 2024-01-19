@@ -49,7 +49,18 @@ const InformationDetail = () => {
     const pathname = usePathname();
     const router = useRouter();
     const id = pathname.split('/').slice(-1)[0];
-    const { data, error, mutate, isLoading }  = useSWR(id, fetcher)		
+    const { data, error, mutate, isLoading }  = useSWR(id, fetcher)	
+    
+    // Function to clear error messages after a delay
+    const clearErrorsAfterDelay = () => {
+        setTimeout(() => {
+            setupdateError({
+                country: '',
+                csirt: '',
+                web: '',
+            });
+        }, 5000); // 5000 milliseconds = 5 seconds
+    };
 
 
     const handleDelete = async (id: any) => {
@@ -86,17 +97,17 @@ const InformationDetail = () => {
             }
             else{
                 const error = updatedData
-                console.log('error ------------------', error.web)
                 setupdateError({
                     country: error.country ? error.country[0] : '',
                     csirt: error.csirt ? error.csirt[0] : '',
                     web: error.web ? error.web[0] : '',
                 })
-            toast('Data Failed to Update', {
-                hideProgressBar: true,
-                autoClose: 2000,
-                type: 'error'
-            });
+                toast('Data Failed to Update', {
+                    hideProgressBar: true,
+                    autoClose: 2000,
+                    type: 'error'
+                });
+                clearErrorsAfterDelay();
         }
         
 
@@ -139,20 +150,31 @@ const InformationDetail = () => {
                             </div>
                             <form className="grid gap-2" onSubmit={handleUpdate}>
                                 <div className="grid grid-cols-3 items-center gap-4">
-                                <Label htmlFor="width">Country {updateError.country ? (<span className='text-red-500'>{updateError.country}</span>): ''}</Label>
+                                <Label htmlFor="width">Country</Label>
                                 <input type="text" name='country' placeholder={data.country} className="col-span-2 h-8 border border-solid border-[gray] rounded px-[3px]" />
-                    
                                 </div>
+                                    <div className='w-full'>
+                                    {updateError.country ? (<span className='text-red-500 transition-all'>{updateError.country}</span>): ''}
+
+                                    </div>
                                 <div className="grid grid-cols-3 items-center gap-4">
-                                <Label htmlFor="maxWidth">Cisrt {updateError.csirt ? (<span className='text-red-500'>{updateError.csirt}</span>): ''}</Label>
+                                <Label htmlFor="maxWidth">Cisrt</Label>
                                 <input type="text" name='csirt' placeholder={data.csirt} className="col-span-2 h-8 border border-solid border-[gray] rounded px-[3px]" />
                         
                                 </div>
+                                <div className='w-full'>
+                                    {updateError.csirt ? (<span className='text-red-500 transition-all'>{updateError.csirt}</span>): ''}
+                                    </div>
                                 <div className="grid grid-cols-3 items-center gap-4">
-                                <Label htmlFor="height">Web {updateError.web ? (<span className='text-red-500'>{updateError.web}</span>): ''}</Label>
+                                <Label htmlFor="height">Web </Label>
+                                
                                 <input type="text" name='web' placeholder={data.web} className="col-span-2 h-8 border border-solid border-[gray] rounded px-[3px]" />
                     
                                 </div>
+                                <div className='w-full'>
+                                    {updateError.web ? (<span className='text-red-500 transition-all'>{updateError.web}</span>): ''}
+                                    </div>
+
 
                                 <div>
                                 <button 
