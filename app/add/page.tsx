@@ -37,7 +37,7 @@ const AddData = () => {
           };
         
           try{
-            const res = await fetch(`http://127.0.0.1:8000/information/`, {
+            const res = await fetch(`https://cyberspectorapi.onrender.com/information/`, {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
