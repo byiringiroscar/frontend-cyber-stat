@@ -11,10 +11,17 @@ import { FaTwitter } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaLocationPin } from "react-icons/fa6";
 
-const MobileBody = () => {
+
+type ToggleType = {
+    isMobileNavOpen: boolean;
+    onToggleNav: any;
+}
+
+
+const MobileBody = ({ isMobileNavOpen, onToggleNav }: ToggleType) => {
   return (
-    <div className={styles.container}>
-        <div className={styles.close}>
+    <div className={`fixed ${styles.container} w-[65vw] h-screen bg-[#09033A] z-[99] transition-all duration-[1s] ${isMobileNavOpen ? 'right-0' : '-right-full'} right-0 top-0`}>
+        <div className={styles.close} onClick={onToggleNav}>
             <IoIosClose className='text-white text-[50px]' />
         </div>
         <div className={styles.wrapper}>

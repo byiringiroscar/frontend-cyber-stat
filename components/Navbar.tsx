@@ -1,12 +1,19 @@
 import React from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import logo from '../public/logo.jpg'
 import menu from '../public/menu.svg'
 import { NAV_LINKS } from '@/constants' 
+import MobileBody from './MobileBody'
 
 
 const Navbar = () => {
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const handleToggleMobileNav = () => {
+    setIsMobileNavOpen(!isMobileNavOpen);
+    // console.log('----------------status----', isMobileNavOpen)
+  };
   return (
     <nav className='flex justify-between padding-container relative bg-white shadow py-5'>
         <Link href='/'>
@@ -18,8 +25,9 @@ const Navbar = () => {
                 <Link href={link.href} key={link.key} className='text-[#090337] transition-all px-2 py-0.5 cursor-pointer rounded font-medium hover:text-white hover:bg-[#090337]'>{link.label}</Link>
             ))}
         </ul>
-        <Image alt="menu" height={32} width={32} src='menu.svg' className="inline-block cursor-pointer lg:hidden" />
-
+        <Image onClick={handleToggleMobileNav} alt="menu" height={32} width={32} src='menu.svg' className="inline-block cursor-pointer lg:hidden" />
+        {/* Pass props to MobileBody */}
+      <MobileBody isMobileNavOpen={isMobileNavOpen} onToggleNav={handleToggleMobileNav} />
     </nav>
   )
 }

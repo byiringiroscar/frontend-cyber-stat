@@ -1,14 +1,10 @@
 .container{
-    position: fixed;
-    width: 65vw;
-    height: 100vh;
-    top: 0;
-    background-color: #09033A;
-    z-index: 99;
-    right: 0;
-    /* right: 100%; */
     transition: all 1s;
 }
+
+.container.active {
+    right: 0;
+  }
 
 
 .close{
