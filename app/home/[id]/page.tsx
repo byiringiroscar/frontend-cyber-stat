@@ -5,13 +5,18 @@ import useSWR from 'swr'
 import Image from "next/image"
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
 
 const fetcher = async(id: any) => {
     const res = await fetch(`http://127.0.0.1:8000/information/${id}`)
@@ -20,11 +25,25 @@ const fetcher = async(id: any) => {
 }
 
 
+const updateInformation = async (id: any, newData: any) => {
+    const res = await fetch(`http://127.0.0.1:8000/information/${id}/`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newData),
+    });
+    const updatedData = await res.json();
+    return updatedData;
+  };
+
+
 const InformationDetail = () => {
     const pathname = usePathname();
     const router = useRouter();
     const id = pathname.split('/').slice(-1)[0];
-    const { data, error, isLoading }  = useSWR(id, fetcher)
+    const { data, error, mutate, isLoading }  = useSWR(id, fetcher)		
+
 
     const handleDelete = async (id: any) => {
         try {
@@ -37,6 +56,29 @@ const InformationDetail = () => {
         router.push("/");
         }
       };
+
+    
+      const handleUpdate = async (e: any) => {
+        e.preventDefault();
+        const newData = {
+            country: e.target.country.value || data.country,
+            csirt: e.target.csirt.value || data.csirt,
+            web: e.target.web.value || '',
+          };
+        try {
+          const updatedData = await updateInformation(id, newData);
+          toast('Data Updated', {
+			hideProgressBar: true,
+			autoClose: 2000,
+			type: 'success'
+		});
+        mutate();
+        e.target.reset()
+
+        } catch (err) {
+            toast("Error")
+        }
+      }
 
     return (
         <>
@@ -70,18 +112,18 @@ const InformationDetail = () => {
                                 please note that flag and country code generate based on country.
                                 </p>
                             </div>
-                            <form className="grid gap-2">
+                            <form className="grid gap-2" onSubmit={handleUpdate}>
                                 <div className="grid grid-cols-3 items-center gap-4">
                                 <Label htmlFor="width">Country</Label>
-                                <input type="text" placeholder="country" className="col-span-2 h-8 border border-solid border-[gray] rounded px-[3px]" />
+                                <input type="text" name='country' placeholder={data.country} className="col-span-2 h-8 border border-solid border-[gray] rounded px-[3px]" />
                                 </div>
                                 <div className="grid grid-cols-3 items-center gap-4">
                                 <Label htmlFor="maxWidth">Cisrt</Label>
-                                <input type="text" placeholder="csirt" className="col-span-2 h-8 border border-solid border-[gray] rounded px-[3px]" />
+                                <input type="text" name='csirt' placeholder={data.csirt} className="col-span-2 h-8 border border-solid border-[gray] rounded px-[3px]" />
                                 </div>
                                 <div className="grid grid-cols-3 items-center gap-4">
                                 <Label htmlFor="height">Web</Label>
-                                <input type="url" placeholder="web" className="col-span-2 h-8 border border-solid border-[gray] rounded px-[3px]" />
+                                <input type="url" name='web' placeholder={data.web} className="col-span-2 h-8 border border-solid border-[gray] rounded px-[3px]" />
                                 </div>
 
                                 <div>
