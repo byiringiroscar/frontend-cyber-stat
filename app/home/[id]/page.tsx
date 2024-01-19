@@ -4,6 +4,14 @@ import { ThreeCircles } from 'react-loader-spinner'
 import useSWR from 'swr'
 import Image from "next/image"
 import { usePathname, useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 
 const fetcher = async(id: any) => {
     const res = await fetch(`http://127.0.0.1:8000/information/${id}`)
@@ -50,7 +58,48 @@ const InformationDetail = () => {
             ): (
                 <div className="max-container padding-container py-8 flex flex-col gap-5">
                     <div className="flex justify-end gap-2">
-                    <button className="bg-[#090337] text-white px-4 py-2 rounded-md">Update</button>
+                    <Popover>
+                        <PopoverTrigger asChild>
+                            <Button variant="outline">Update</Button>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-80">
+                            <div className="grid gap-4">
+                            <div className="space-y-2">
+                                <h4 className="font-medium leading-none">Update the data</h4>
+                                <p className="text-sm text-muted-foreground">
+                                please note that flag and country code generate based on country.
+                                </p>
+                            </div>
+                            <form className="grid gap-2">
+                                <div className="grid grid-cols-3 items-center gap-4">
+                                <Label htmlFor="width">Country</Label>
+                                <input type="text" placeholder="country" className="col-span-2 h-8 border border-solid border-[gray] rounded px-[3px]" />
+                                </div>
+                                <div className="grid grid-cols-3 items-center gap-4">
+                                <Label htmlFor="maxWidth">Cisrt</Label>
+                                <input type="text" placeholder="csirt" className="col-span-2 h-8 border border-solid border-[gray] rounded px-[3px]" />
+                                </div>
+                                <div className="grid grid-cols-3 items-center gap-4">
+                                <Label htmlFor="height">Web</Label>
+                                <input type="url" placeholder="web" className="col-span-2 h-8 border border-solid border-[gray] rounded px-[3px]" />
+                                </div>
+
+                                <div>
+                                <button 
+                                className="
+                                w-full flex justify-center bg-[#090337] text-white px-4 py-2 rounded-md">
+                                    Update
+                                </button>
+                                </div>
+
+
+
+                        
+                            </form>
+                            </div>
+                        </PopoverContent>
+                        </Popover>
+
                     <button className="bg-[#090337] text-white px-4 py-2 rounded-md"
                     onClick={() => handleDelete(data.id)}
                     
