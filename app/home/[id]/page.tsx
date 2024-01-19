@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { ThreeCircles } from 'react-loader-spinner'
 import useSWR from 'swr'
 import Image from "next/image"
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const fetcher = async(id: any) => {
     const res = await fetch(`http://127.0.0.1:8000/information/${id}`)
@@ -14,8 +14,21 @@ const fetcher = async(id: any) => {
 
 const InformationDetail = () => {
     const pathname = usePathname();
+    const router = useRouter();
     const id = pathname.split('/').slice(-1)[0];
     const { data, error, isLoading }  = useSWR(id, fetcher)
+
+    const handleDelete = async (id: any) => {
+        try {
+          await fetch(`http://127.0.0.1:8000/information/${id}/`, {
+            method: "DELETE",
+          });
+        router.push("/");
+
+        } catch (err) {
+        router.push("/");
+        }
+      };
 
     return (
         <>
@@ -38,7 +51,10 @@ const InformationDetail = () => {
                 <div className="max-container padding-container py-8 flex flex-col gap-5">
                     <div className="flex justify-end gap-2">
                     <button className="bg-[#090337] text-white px-4 py-2 rounded-md">Update</button>
-                    <button className="bg-[#090337] text-white px-4 py-2 rounded-md">Delete</button>
+                    <button className="bg-[#090337] text-white px-4 py-2 rounded-md"
+                    onClick={() => handleDelete(data.id)}
+                    
+                    >Delete</button>
                     </div>
                 <h2 className="font-bold text-4xl text-[#090337]">{data.country}</h2>
                 <p>Aliquam hendrerit sollicitudin purus, quis rutrum mi accumsan nec. 
