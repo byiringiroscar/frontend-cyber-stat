@@ -1,5 +1,6 @@
 "use client"
 import { notFound } from 'next/navigation'
+import { ThreeCircles } from 'react-loader-spinner'
 import useSWR from 'swr'
 import Image from "next/image"
 import { usePathname } from "next/navigation";
@@ -15,23 +16,26 @@ const InformationDetail = () => {
     const pathname = usePathname();
     const id = pathname.split('/').slice(-1)[0];
     const { data, error, isLoading }  = useSWR(id, fetcher)
-    if (isLoading) {
-        return (
-            <div className='flex justify-center items-center pt-8'>Loading....</div>
-          );
-    }
-    if (error) {
-        return (
-            <div className='flex justify-center items-center pt-8'>Page not found</div>
-          );
-    }
 
     return (
         <>
             <div className='flexCenter bg-[#F1F6FB] h-[180px] lg:px-40'>
                <h4 className="font-bold text-xl text-[#090337]">Information Detail</h4>
             </div>
-            <div className="max-container padding-container py-8 flex flex-col gap-5">
+            {isLoading ? (
+                <div className='flex justify-center items-center pt-8'><ThreeCircles
+                visible={true}
+                height="50"
+                width="50"
+                color="#4fa94d"
+                ariaLabel="three-circles-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                /></div>
+            ): error ? (
+                <div className='flex justify-center items-center pt-8'>Page not found</div>
+            ): (
+                <div className="max-container padding-container py-8 flex flex-col gap-5">
                 <h2 className="font-bold text-4xl text-[#090337]">{data.country.toUpperCase()}</h2>
                 <p>Aliquam hendrerit sollicitudin purus, quis rutrum mi accumsan nec. 
                     Quisque bibendum orci ac nibh facilisis, at malesuada orci congue. 
@@ -59,6 +63,7 @@ Donec et justo ante. Vivamus egestas sodales est, eu rhoncus urna semper eu. Cum
                     <Image src={data.flag} alt="flag" height={60} width={60} />
                     </div>
             </div>
+            )}
         </>
     )
 }
