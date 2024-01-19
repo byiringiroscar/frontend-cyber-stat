@@ -36,7 +36,11 @@ const InformationDetail = () => {
                 notFound()
             ): (
                 <div className="max-container padding-container py-8 flex flex-col gap-5">
-                <h2 className="font-bold text-4xl text-[#090337]">{data.country.toUpperCase()}</h2>
+                    <div className="flex justify-end gap-2">
+                    <button className="bg-[#090337] text-white px-4 py-2 rounded-md">Update</button>
+                    <button className="bg-[#090337] text-white px-4 py-2 rounded-md">Delete</button>
+                    </div>
+                <h2 className="font-bold text-4xl text-[#090337]">{data.country}</h2>
                 <p>Aliquam hendrerit sollicitudin purus, quis rutrum mi accumsan nec. 
                     Quisque bibendum orci ac nibh facilisis, at malesuada orci congue. 
                     Nullam tempus sollicitudin cursus. Ut et adipiscing erat. Curabitur this is a text link libero tempus congue.
@@ -48,7 +52,7 @@ Donec et justo ante. Vivamus egestas sodales est, eu rhoncus urna semper eu. Cum
 
                 <div className="flex flex-col gap-2">
                     <h4 className="font-bold">CSIRT</h4>
-                    <p>{data.csirt.toUpperCase()}</p>
+                    <p>{data.csirt}</p>
                 </div>
                 <div className="flex flex-col gap-2">
                     <h4 className="font-bold">Country Code</h4>
@@ -56,12 +60,13 @@ Donec et justo ante. Vivamus egestas sodales est, eu rhoncus urna semper eu. Cum
                     </div>
                 <div className="flex flex-col gap-2">
                     <h4 className="font-bold">Country</h4>
-                    <p>{data.country.toUpperCase()}</p>
+                    <p>{data.country}</p>
                     </div>
                 <div className="flex flex-col gap-2">
                     <h4 className="font-bold">Flag</h4>
-                    <Image src={data.flag} alt="flag" height={60} width={60} />
-                    </div>
+                <Image src={data.flag} alt="flag" height={60} width={60} />
+                </div>
+
             </div>
             )}
         </>
