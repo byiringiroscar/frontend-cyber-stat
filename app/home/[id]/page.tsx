@@ -23,7 +23,7 @@ const InformationDetail = () => {
                <h4 className="font-bold text-xl text-[#090337]">Information Detail</h4>
             </div>
             {isLoading ? (
-                <div className='flex justify-center items-center pt-8'><ThreeCircles
+                <div className='flex justify-center items-center pt-8 pb-8'><ThreeCircles
                 visible={true}
                 height="50"
                 width="50"
@@ -33,7 +33,7 @@ const InformationDetail = () => {
                 wrapperClass=""
                 /></div>
             ): error ? (
-                <div className='flex justify-center items-center pt-8'>Page not found</div>
+                notFound()
             ): (
                 <div className="max-container padding-container py-8 flex flex-col gap-5">
                 <h2 className="font-bold text-4xl text-[#090337]">{data.country.toUpperCase()}</h2>
