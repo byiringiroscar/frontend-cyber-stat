@@ -8,7 +8,7 @@ import { NAV_LINKS } from '@/constants'
 
 const Navbar = () => {
   return (
-    <nav className='flex justify-between padding-container relative  z-30 bg-white shadow py-5'>
+    <nav className='flex justify-between padding-container relative bg-white shadow py-5'>
         <Link href='/'>
             <Image alt="logo" src={logo} width={180} height={60} />
         </Link>
