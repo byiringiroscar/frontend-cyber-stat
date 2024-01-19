@@ -20,14 +20,14 @@ import { useState } from 'react'
 
 
 const fetcher = async(id: any) => {
-    const res = await fetch(`http://127.0.0.1:8000/information/${id}`)
+    const res = await fetch(`https://cyberspectorapi.onrender.com/information/${id}`)
     const data = await res.json()
     return data
 }
 
 
 const updateInformation = async (id: any, newData: any) => {
-    const res = await fetch(`http://127.0.0.1:8000/information/${id}/`, {
+    const res = await fetch(`https://cyberspectorapi.onrender.com/information/${id}/`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ const InformationDetail = () => {
 
     const handleDelete = async (id: any) => {
         try {
-          await fetch(`http://127.0.0.1:8000/information/${id}/`, {
+          await fetch(`https://cyberspectorapi.onrender.com/information/${id}/`, {
             method: "DELETE",
           });
           toast('Data Deleted', {
@@ -76,6 +76,11 @@ const InformationDetail = () => {
             router.push("/");
 
         } catch (err) {
+            toast('Data Failed to Delete', {
+                hideProgressBar: true,
+                autoClose: 2000,
+                type: 'error'
+            });
         router.push("/");
 
         }

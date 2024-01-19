@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const options = {
     method: 'GET',
-    url: 'http://127.0.0.1:8000/information',
+    url: 'https://cyberspectorapi.onrender.com/information',
   };
 
   const initialState = {
@@ -20,7 +20,6 @@ const options = {
     try {
       const response = await axios.request(options);
       const informations = await response.data;
-      console.log('-----------------------', informations)
       return informations;
     } catch (error) {
       return thunkAPI.rejectWithValue('Something went wrong');
