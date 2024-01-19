@@ -9,7 +9,7 @@ import { AppDispatch } from '@/redux/store';
 import MobileBody from '@/components/MobileBody';
 
 export default function Home() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
     dispatch(fetchInformations());
   }, [dispatch]);
