@@ -1,4 +1,5 @@
 'use client'
+import { useEffect, useState } from 'react'
 import type { Metadata } from 'next'
 import Providers from '@/redux/provider'
 import { Inter } from 'next/font/google'
@@ -9,7 +10,6 @@ import Footer from '@/components/Footer'
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react'
 
 
 const inter = Inter({ subsets: ['latin'] })
