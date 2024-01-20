@@ -38,10 +38,7 @@ export default function RootLayout({
     // <Providers>
     // <html lang="en">
     //   <body className='flex flex-col min-h-screen'>
-    //     {isLoading && isHome ? (
-    //       <SplashScreen finishLoading={() => setIsLoading(false)} />
-    //       ): (
-    //         <>
+    //   <>
     //         {/* <MobileBody /> */}
     //       <Navbar />
     //       <main className='relative overflow-hidden flex-grow'>
@@ -51,7 +48,6 @@ export default function RootLayout({
     //       </main>
     //       <Footer />
     //       </>
-    //     )}
     //     </body>
     // </html>
     // </Providers>

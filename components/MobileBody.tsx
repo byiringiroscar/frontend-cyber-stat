@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import styles from './mobilebody.module.css'
 import { IoIosClose } from "react-icons/io";
 import Image from 'next/image';
@@ -21,7 +22,7 @@ type ToggleType = {
 
 const MobileBody = ({ isMobileNavOpen, onToggleNav }: ToggleType) => {
   return (
-    <div className={`fixed ${styles.container} lg:hidden w-[65vw] h-screen bg-[#09033A] z-[99] transition-all duration-[1s] ${isMobileNavOpen ? 'right-0' : '-right-full'} right-0 top-0`}>
+    <div className={`fixed ${styles.container} lg:hidden w-[65vw] h-screen bg-[#09033A] z-[99] transition-all duration-[1s] ${isMobileNavOpen ? 'right-0' : '-right-full'} top-0`}>
         <div className={styles.close} onClick={onToggleNav}>
             <IoIosClose className='text-white text-[50px]' />
         </div>

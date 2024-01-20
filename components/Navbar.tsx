@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -13,6 +14,7 @@ const Navbar = () => {
   const handleToggleMobileNav = () => {
     setIsMobileNavOpen(!isMobileNavOpen);
   };
+  
   return (
     <nav className='flex justify-between padding-container relative bg-white shadow py-5'>
         <Link href='/'>
@@ -26,7 +28,7 @@ const Navbar = () => {
         </ul>
         <Image onClick={handleToggleMobileNav} alt="menu" height={32} width={32} src='menu.svg' className="inline-block cursor-pointer lg:hidden" />
         {/* Pass props to MobileBody */}
-      <MobileBody isMobileNavOpen={isMobileNavOpen} onToggleNav={handleToggleMobileNav} />
+        <MobileBody isMobileNavOpen={isMobileNavOpen} onToggleNav={handleToggleMobileNav} />
     </nav>
   )
 }

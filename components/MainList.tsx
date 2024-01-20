@@ -1,7 +1,5 @@
 'use client'
 import { useSelector } from 'react-redux';
-import useSWR from 'swr'
-import Image from 'next/image'
 import CardStat from './CardStat'
 import { ThreeCircles } from 'react-loader-spinner'
 import { RootState } from '@/redux/store';
