@@ -6,7 +6,6 @@ import axios from 'axios';
 const options = {
     method: 'GET',
     url: 'https://cyberspectorapi.onrender.com/information',
-    withCredentials: true,
   };
 
   const initialState = {
