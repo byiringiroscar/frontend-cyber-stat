@@ -26,7 +26,7 @@ const Navbar = () => {
                 <Link href={link.href} key={link.key} className='text-[#090337] transition-all px-2 py-0.5 cursor-pointer rounded font-medium hover:text-white hover:bg-[#090337]'>{link.label}</Link>
             ))}
         </ul>
-        <Image onClick={handleToggleMobileNav} alt="menu" height={32} width={32} src='menu.svg' className="inline-block cursor-pointer lg:hidden" />
+        <Image onClick={handleToggleMobileNav} src={menu} alt="menu" height={32} width={32} className="inline-block cursor-pointer lg:hidden" />
         {/* Pass props to MobileBody */}
         <MobileBody isMobileNavOpen={isMobileNavOpen} onToggleNav={handleToggleMobileNav} />
     </nav>
