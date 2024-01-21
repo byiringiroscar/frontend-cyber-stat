@@ -1,7 +1,7 @@
 import React from 'react'
 import PageHeader from '@/components/PageHeader'
 import Image from 'next/image'
-import center_call from '../../public/callcenter.gif'
+import center_call from '../../public/contact.png'
 
 const Contact = () => {
   return (
@@ -26,7 +26,7 @@ const Contact = () => {
                 <button type='submit' className='bg-[#090337] text-white py-2 rounded-md flex items-center justify-center px-5'>Send Message</button>
 
             </form>
-            <Image src={center_call} alt='contact' height={100} width={100} className='flex-1' />
+            <Image src={center_call} alt='contact'   className='hidden lg:block lg:flex-1 h-[400px] cursor-pointer' />
 
         </div>
     </>
