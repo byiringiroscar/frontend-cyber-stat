@@ -1,5 +1,6 @@
 import React from 'react'
 import PageHeader from '@/components/PageHeader'
+import ContactCard from '@/components/ContactCard'
 import Image from 'next/image'
 import center_call from '../../public/contact.png'
 
@@ -7,6 +8,7 @@ const Contact = () => {
   return (
     <>
         <PageHeader title='Contact' />
+        <ContactCard />
         <div className='max-container padding-container py-8 flex gap-5'>
             <form className='flex-1 flex flex-col items-center gap-3'>
                 <h4 className='font-bold text-2xl text-[#090337]'>Contact Us</h4>
