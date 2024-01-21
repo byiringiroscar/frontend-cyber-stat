@@ -239,6 +239,11 @@ Donec et justo ante. Vivamus egestas sodales est, eu rhoncus urna semper eu. Cum
                 <Image src={data.flag} alt="flag" height={60} width={60} />
                 </div>
 
+                <div className="flex flex-col gap-2">
+                    <h4 className="font-bold">Web</h4>
+                    <p>{data.web}</p>
+                    </div>
+
             </div>
             )}
         </>
