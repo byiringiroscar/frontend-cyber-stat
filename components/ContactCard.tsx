@@ -1,12 +1,13 @@
 import React from 'react'
+import ContactCardSingle from './ContactCardSingle'
 
 const ContactCard = () => {
   return (
-    <div className='max-container padding-container py-8 flex justify-center gap-5'>
-            <div className='border border-solid border-[#090337] rounded-xl p-5 cursor-pointer transition-[0.3s] hover:shadow-[rgba(0,0,0,0.35)_0px_5px_15px]'>
-                <h4 className='font-bold text-[18px] text-[#090337]'>Phone</h4>
-                <p className='text-[#090337]'>+91 1234567890</p>
-            </div>
+    <div className='max-container padding-container py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5'>
+            <ContactCardSingle title='Email' content='cyberspector@gmail.com' />
+            <ContactCardSingle title='Phone' content='+250 788888888' />
+            <ContactCardSingle title='Address' content='Cyberspector, 1234, paris, france' />
+            <ContactCardSingle title='Country' content='France, Rwanda, Benin' />
     </div>
   )
 }
