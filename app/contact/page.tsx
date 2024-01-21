@@ -8,6 +8,7 @@ import PageHeader from '@/components/PageHeader'
 import ContactCard from '@/components/ContactCard'
 import Image from 'next/image'
 import center_call from '../../public/contact.png'
+import styles from './page.module.css';
 
 const Contact = () => {
     const [ loading, setLoading ] = useState(false)
@@ -116,7 +117,7 @@ const Contact = () => {
   />): 'Send message'}</button>
 
             </form>
-            <Image src={center_call} alt='contact'   className='hidden lg:block lg:flex-1 h-[400px] cursor-pointer' />
+            <Image src={center_call} alt='contact'   className={`hidden lg:block lg:flex-1 h-[400px] cursor-pointer ${styles.image}`} />
 
         </div>
         <div className='w-screen'>
