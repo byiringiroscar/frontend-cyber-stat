@@ -5,6 +5,7 @@ import useSWR from 'swr'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ThreeDots } from 'react-loader-spinner'
+import PageHeader from '@/components/PageHeader';
 
 
 
@@ -83,9 +84,7 @@ const AddData = () => {
     }
   return (
     <>
-        <div className='flexCenter bg-[#F1F6FB] h-[180px] lg:px-40'>
-               <h4 className="font-bold text-xl text-[#090337]">Add Data</h4>
-            </div>
+        <PageHeader title='Add Data' />
 
         <div className='max-container padding-container py-8 flex flex-col gap-5'>
             <form className='flex flex-col gap-4' onSubmit={handleAdd}>
