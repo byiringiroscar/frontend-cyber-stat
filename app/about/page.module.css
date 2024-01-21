@@ -1,13 +1,14 @@
 .image {
-    object-fit: contain;
-    animation: move 3s infinite ease alternate;
+  width: 150px;
+  object-fit: contain;
+  animation: move 3s infinite ease alternate;
+}
+
+@keyframes move {
+  from {
+    transform: translateY(-10px);
   }
-  
-  @keyframes move {
-    from {
-      transform: translateY(-15px);
-    }
-    to {
-      transform: translateY(0px) scale(1.03);
-    }
+  to {
+    transform: translateY(10px);
   }
+}
