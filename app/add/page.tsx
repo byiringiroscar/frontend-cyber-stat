@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import { useState } from 'react';
-import useSWR from 'swr'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ThreeDots } from 'react-loader-spinner'
