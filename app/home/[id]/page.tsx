@@ -92,7 +92,7 @@ const InformationDetail = () => {
         const newData = {
             country: e.target.country.value || data.country,
             csirt: e.target.csirt.value || data.csirt,
-            web: e.target.web.value || '',
+            web: e.target.web.value || data.csirt,
           };
         try {
           const updatedData = await updateInformation(id, newData);
