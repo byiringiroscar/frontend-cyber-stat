@@ -14,7 +14,7 @@ const VectorMap = dynamic(
 );
 
 const fetcher = async(id: any) => {
-    const res = await fetch(`http://127.0.0.1:8000/information`)
+    const res = await fetch(`https://cyberspectorapi.onrender.com/information`)
     const data = await res.json()
     return data
 }

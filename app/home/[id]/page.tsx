@@ -9,7 +9,7 @@ import { ThreeCircles } from 'react-loader-spinner'
 import { usePathname, useRouter } from "next/navigation";
 
 const fetcher = async(country_name: any) => {
-  const res = await fetch(`http://127.0.0.1:8000/information/country/${country_name}`)
+  const res = await fetch(`https://cyberspectorapi.onrender.com/information/country/${country_name}`)
   const data = await res.json()
   return data
 }
