@@ -22,7 +22,7 @@ const Page = () => {
     <>
       <PageHeader title='CSIRT DETAIL' />
       <div className='max-container padding-container py-8 flex flex-col gap-5'>
-      <div className='grid grid-cols-1 py-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 pt-4 lg:pt-8'>
+      
         {isLoading ? (
           <div className='flex justify-center items-center pt-8 pb-8'><ThreeCircles
           visible={true}
@@ -41,8 +41,6 @@ const Page = () => {
         )) 
           
       )}
-
-        </div>
       </div>
     
     </>
