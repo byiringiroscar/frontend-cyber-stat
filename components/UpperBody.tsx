@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './upperbody.module.css'
 import Button from '@/components/Button/Button'
-import globe from '../public/globeee.jpg'
+import globe from '../public/globe.png'
 import Image from 'next/image'
 
 const UpperBody = () => {
