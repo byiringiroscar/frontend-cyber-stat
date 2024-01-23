@@ -12,7 +12,7 @@ type InformationType = {
 
 const CardStat = ({id, flag, country, csirt, country_code}: InformationType) => {
   return (
-    <Link href={`/home/${id}`} className='w-full flex justify-between p-3 bg-[#F1F6FB] rounded cursor-pointer transition-[0.3s] hover:shadow-[rgba(0,0,0,0.35)_0px_5px_15px]'>
+    <Link href={`/stat/${id}`} className='w-full flex justify-between p-3 bg-[#F1F6FB] rounded cursor-pointer transition-[0.3s] hover:shadow-[rgba(0,0,0,0.35)_0px_5px_15px]'>
         <Image src={flag} alt='flag' height={30} width={30} />
         <div className='flex-col gap-2'>
             <h4 className='text-sm font-bold'>{country}</h4>

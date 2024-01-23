@@ -16,8 +16,7 @@ export default function Home() {
   return (
     <>
       <MobileBody />
-      <SearchArea  />
-      <MainList  />
+      <h1>hi</h1>
     </>
   )
 }
