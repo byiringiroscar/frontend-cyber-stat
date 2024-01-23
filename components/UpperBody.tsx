@@ -15,7 +15,7 @@ const UpperBody = () => {
 
 
 
-        <div className={styles.item}>
+        <div className='hidden flex-1 flex-col lg:flex '>
         <Image src={globe} alt='globe' />
         </div>
 
