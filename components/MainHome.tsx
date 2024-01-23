@@ -6,6 +6,7 @@ import { ThreeCircles } from 'react-loader-spinner'
 import useSWR from 'swr'
 import Image from "next/image"
 import { usePathname, useRouter } from "next/navigation";
+import UpperBody from './UpperBody';
 
 const VectorMap = dynamic(
   // @ts-ignore
@@ -22,24 +23,24 @@ const fetcher = async(id: any) => {
 const MainHome = () => {
     const router = useRouter()
     const { data, error, mutate, isLoading }  = useSWR('home', fetcher)	
-    if(isLoading){
-        return (
-            <div className="flex justify-center items-center">
-                <ThreeCircles color="#3b96ce" />
-            </div>
-        )
-    }
-    if(error){
-        return (
-            <div className="flex justify-center items-center">
-                <h1>Something went wrong</h1>
-            </div>
-        )
-    }
-    // console.log('data', data)
   return (
-    <div style={{width: '100%', height: 500}}>
-      <VectorMap map={africaMill}
+    <>
+        <UpperBody />
+        <div style={{width: '100%', height: 500}}>
+        {isLoading ? (
+          <div className='flex justify-center items-center pt-8 pb-8'><ThreeCircles
+          visible={true}
+          height="50"
+          width="50"
+          color="#4fa94d"
+          ariaLabel="three-circles-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          /></div>
+        ):  error ? (
+          notFound()
+      ): (
+        <VectorMap map={africaMill}
         backgroundColor="#3b96ce"
         onRegionClick={(e, countryCode) => {
             const filteredData = data.filter((code: any) => code.country_code.toLowerCase().includes(countryCode.toLowerCase()))
@@ -52,8 +53,11 @@ const MainHome = () => {
             const country_name = firstData.country
             router.push(`/home/${country_name}`)
         }}
-      />
+      />  
+          
+      )}
     </div>
+    </>
   )
 }
 
