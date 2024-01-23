@@ -42,3 +42,24 @@
     width: max-content;
     color: white;
   }
+
+  /* upperbody.module.css */
+
+@keyframes rotateGlobe {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotatedGlobeContainer {
+  animation: rotateGlobe 10s linear infinite; /* Adjust the duration as needed */
+}
+
+/* Apply styles directly to Image component */
+.rotatedGlobe {
+  width: 100%;
+  height: 100%;
+}

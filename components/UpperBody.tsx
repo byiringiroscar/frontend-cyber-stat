@@ -15,8 +15,8 @@ const UpperBody = () => {
 
 
 
-        <div className='hidden flex-1 flex-col lg:flex '>
-        <Image src={globe} alt='globe' />
+        <div className={`hidden flex-1 flex-col lg:flex ${styles.rotatedGlobeContainer}`}>
+        <Image src={globe} alt='globe' className={styles.rotatedGlobe} />
         </div>
 
     </div>
