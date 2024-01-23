@@ -3,10 +3,9 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { fetchInformations } from '../redux/informationSlice'
 import { useDispatch } from 'react-redux';
-import SearchArea from '@/components/SearchArea'
-import MainList from '@/components/MainList'
 import { AppDispatch } from '@/redux/store';
 import MobileBody from '@/components/MobileBody';
+import MainHome from '@/components/MainHome';
 
 export default function Home() {
   const dispatch = useDispatch<AppDispatch>();
@@ -16,7 +15,7 @@ export default function Home() {
   return (
     <>
       <MobileBody />
-      <h1>hi</h1>
+      <MainHome />
     </>
   )
 }
