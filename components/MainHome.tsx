@@ -32,7 +32,7 @@ const MainHome = () => {
           visible={true}
           height="50"
           width="50"
-          color="#4fa94d"
+          color="#3AA7E2"
           ariaLabel="three-circles-loading"
           wrapperStyle={{}}
           wrapperClass=""
@@ -41,7 +41,7 @@ const MainHome = () => {
           notFound()
       ): (
         <VectorMap map={africaMill}
-        backgroundColor="#3b96ce"
+        backgroundColor="#3AA7E2"
         onRegionClick={(e, countryCode) => {
             const filteredData = data.filter((code: any) => code.country_code.toLowerCase().includes(countryCode.toLowerCase()))
             const firstData = filteredData[0]
